@@ -182,6 +182,7 @@ export default function QuoteBuilder() {
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<Errors>({});
   const [query, setQuery] = useState("");
+  const [sent, setSent] = useState(false);
 
   const category = getCategory(categoryId);
   const group = category.groups.find((item) => item.id === groupId) ?? category.groups[0];
@@ -267,6 +268,7 @@ export default function QuoteBuilder() {
     setName("");
     setPhone("");
     setErrors({});
+    setSent(false);
   }
 
   function scrollTo(id: string) {
@@ -314,6 +316,7 @@ export default function QuoteBuilder() {
       phone,
     });
 
+    setSent(true);
     window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
   }
 
@@ -675,6 +678,13 @@ export default function QuoteBuilder() {
           >
             Enviar orçamento pelo WhatsApp
           </button>
+
+          {sent && (
+            <p className="mt-4 border border-neon/30 bg-neon/10 px-3.5 py-2.5 text-[12.5px] leading-relaxed text-neutral-300">
+              Orçamento encaminhado! Recebemos sua solicitação e responderemos pelo
+              WhatsApp.
+            </p>
+          )}
 
           <button
             type="button"
