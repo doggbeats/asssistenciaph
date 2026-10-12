@@ -18,7 +18,7 @@ export default function Header() {
           href="/#inicio"
           aria-label="CODE_PH — início"
           onClick={() => setOpen(false)}
-          className="flex items-center"
+          className="group flex items-center"
         >
           <Image
             src="/logo.jpg"
@@ -27,7 +27,7 @@ export default function Header() {
             height={413}
             loading="eager"
             fetchPriority="high"
-            className="h-9 w-auto md:h-11"
+            className="h-9 w-auto origin-left transition-transform duration-300 ease-out group-hover:scale-[1.06] group-focus-visible:scale-[1.06] md:h-11"
           />
         </Link>
 

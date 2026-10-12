@@ -2,7 +2,7 @@ export const brand = {
   name: "CODE_PH",
   legalName: "CODE_PH – Assistência Técnica & Soluções Digitais",
   subtitle: "ASSISTÊNCIA TÉCNICA & SOLUÇÕES DIGITAIS",
-  tagline: "Soluções em tecnologia que aproximam pessoas e transformam empresas.",
+  tagline: "Tecnologia para simplificar o seu dia a dia.",
   audience: "Atendimento para pessoas e empresas.",
 };
 

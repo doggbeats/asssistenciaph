@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | CODE_PH",
   },
   description:
-    "Assistência técnica especializada em computadores e celulares e desenvolvimento de sites, sistemas e soluções digitais sob medida. Monte seu orçamento e envie pelo WhatsApp.",
+    "Assistência técnica para computadores e celulares e desenvolvimento de soluções digitais para facilitar a gestão do seu negócio. Monte seu orçamento e envie pelo WhatsApp.",
   keywords: [
     "assistência técnica",
     "formatação de computador",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CODE_PH — Assistência Técnica & Soluções Digitais",
     description:
-      "Soluções em tecnologia que aproximam pessoas e transformam empresas. Assistência técnica, sites e sistemas.",
+      "Tecnologia para simplificar o seu dia a dia. Assistência técnica, sites e sistemas.",
     locale: "pt_BR",
     type: "website",
   },

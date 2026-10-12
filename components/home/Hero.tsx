@@ -14,6 +14,13 @@ const stats = [
   { value: "WhatsApp", label: "envio direto da solicitação" },
 ];
 
+const businessSolutions = [
+  "Sistemas de controle e gestão com dashboard, painel administrativo e gerenciamento",
+  "Catálogo e Lojas virtuais",
+  "Sistema de Agendamentos + integração com WhatsApp",
+  "Sistemas de gestão (ERP) com integração ao WhatsApp",
+];
+
 function highlightPrice(priceType: string, price?: number) {
   if (priceType === "evaluation" || price === undefined) {
     return <span className="text-neutral-500">sob avaliação</span>;
@@ -46,7 +53,7 @@ export default function Hero() {
               {brand.subtitle}
             </p>
 
-            <h1 className="mt-7 font-mono text-[52px] font-bold leading-none tracking-tight sm:text-[64px] md:text-[86px]">
+            <h1 className="mt-7 inline-block font-mono text-[52px] font-bold leading-none tracking-tight transition-transform duration-700 ease-in-out hover:rotate-[360deg] sm:text-[64px] md:text-[86px]">
               CODE<span className="text-neon">_</span>PH
             </h1>
 
@@ -55,10 +62,27 @@ export default function Hero() {
             </p>
 
             <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-neutral-400 md:text-[17px]">
-              Prestamos assistência técnica especializada em computadores e celulares e
-              desenvolvemos sites, sistemas e soluções digitais sob medida. Solicite seu
-              orçamento pelo WhatsApp.
+              Assistência técnica para computadores e celulares e desenvolvimento de
+              soluções digitais para facilitar a gestão do seu negócio.
             </p>
+
+            <p className="mt-7 font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
+              Soluções para o seu negócio
+            </p>
+            <ul className="mt-3 grid max-w-xl gap-2.5 sm:grid-cols-2">
+              {businessSolutions.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-[14.5px] leading-snug text-neutral-300"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-[7px] inline-block h-1.5 w-1.5 shrink-0 bg-neon"
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link

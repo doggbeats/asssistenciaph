@@ -291,7 +291,7 @@ export const serviceCategories: ServiceCategory[] = [
           },
           {
             id: "sd-loja-whatsapp",
-            name: "Loja virtual com WhatsApp",
+            name: "Catálogo e Lojas Virtuais",
             detail: "Catálogo de produtos com pedidos finalizados pelo WhatsApp.",
             priceType: "from",
             price: 899,
@@ -309,7 +309,7 @@ export const serviceCategories: ServiceCategory[] = [
           },
           {
             id: "sd-agendamento",
-            name: "Sistema de agendamento",
+            name: "Sistema de Agendamentos + integração com WhatsApp",
             detail: "Agenda online com horários, confirmações e avisos ao cliente.",
             priceType: "from",
             price: 799,
