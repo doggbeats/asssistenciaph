@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PriceTag from "@/components/ui/PriceTag";
 import {
   getCategory,
@@ -184,6 +184,12 @@ export default function QuoteBuilder() {
   const [query, setQuery] = useState("");
   const [sent, setSent] = useState(false);
 
+  useEffect(() => {
+    if (!sent) return;
+    const timer = window.setTimeout(() => setSent(false), 7000);
+    return () => window.clearTimeout(timer);
+  }, [sent]);
+
   const category = getCategory(categoryId);
   const group = category.groups.find((item) => item.id === groupId) ?? category.groups[0];
 
@@ -339,6 +345,48 @@ export default function QuoteBuilder() {
         lines.length > 0 ? "pb-28 lg:pb-0" : "pb-0",
       )}
     >
+      {sent && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed inset-x-4 top-4 z-50 mx-auto flex max-w-md items-start gap-3 border border-neon/40 bg-ink px-4 py-3.5 text-white shadow-lg"
+        >
+          <span aria-hidden="true" className="mt-0.5 shrink-0 text-neon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path
+                d="M3.5 9.5L7 13L14.5 5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="square"
+              />
+            </svg>
+          </span>
+          <div className="min-w-0">
+            <p className="text-[13.5px] font-medium text-white">
+              Orçamento enviado com sucesso!
+            </p>
+            <p className="mt-0.5 text-[12.5px] leading-relaxed text-neutral-300">
+              Recebemos sua solicitação e responderemos pelo WhatsApp.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setSent(false)}
+            aria-label="Fechar notificação"
+            className="ml-auto shrink-0 text-neutral-500 transition-colors hover:text-white"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path
+                d="M3.5 3.5L10.5 10.5M10.5 3.5L3.5 10.5"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="square"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
+
       <div className="min-w-0 space-y-9">
         <Step number="01" title="Categoria">
           <div className="flex flex-wrap gap-2">
@@ -678,13 +726,6 @@ export default function QuoteBuilder() {
           >
             Enviar orçamento pelo WhatsApp
           </button>
-
-          {sent && (
-            <p className="mt-4 border border-neon/30 bg-neon/10 px-3.5 py-2.5 text-[12.5px] leading-relaxed text-neutral-300">
-              Orçamento encaminhado! Recebemos sua solicitação e responderemos pelo
-              WhatsApp.
-            </p>
-          )}
 
           <button
             type="button"
