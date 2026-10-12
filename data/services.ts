@@ -4,6 +4,8 @@ export interface ServiceItem {
   id: string;
   name: string;
   detail: string;
+  featuresTitle?: string;
+  features?: string[];
   priceType: PriceType;
   price?: number;
   quantity: boolean;
@@ -98,10 +100,10 @@ const desktopItems: ServiceItem[] = [
 const notebookItems: ServiceItem[] = [
   {
     id: "notebook-backup",
-    name: "Backup de arquivos",
+    name: "Backup & Recuperação de Dados",
     detail: "Cópia de documentos, fotos e programas em um dispositivo indicado pelo cliente.",
     priceType: "from",
-    price: 50,
+    price: 80,
     quantity: true,
     available: true,
   },
@@ -148,7 +150,7 @@ const notebookItems: ServiceItem[] = [
     name: "Manutenção completa",
     detail: "Aspiração de poeira, limpeza de ventoinhas, troca de pasta térmica do processador e higienização externa.",
     priceType: "from",
-    price: 130,
+    price: 150,
     quantity: true,
     available: true,
   },
@@ -262,83 +264,54 @@ export const serviceCategories: ServiceCategory[] = [
         hint: "Projetos sob orçamento conforme a necessidade.",
         items: [
           {
-            id: "sd-landing",
-            name: "Landing page",
-            detail: "Página única focada em um serviço, produto ou campanha.",
-            priceType: "from",
-            price: 399,
-            quantity: false,
-            available: true,
-          },
-          {
-            id: "sd-site-institucional",
-            name: "Site institucional",
+            id: "sd-catalogo-digital",
+            name: "Catálogo Digital + WhatsApp",
             detail:
-              "Site para a empresa, com páginas, formulários e integração com o WhatsApp.",
+              "Divulgue seus produtos em um único link, facilite o atendimento e torne seus pedidos mais organizados. Seus clientes escolhem os produtos no catálogo e enviam o pedido diretamente pelo WhatsApp.",
+            featuresTitle: "Mais praticidade para vender",
+            features: [
+              "Produtos organizados com fotos e preços",
+              "Facilidade para compartilhar nas redes sociais",
+              "Atendimento direto pelo WhatsApp",
+            ],
             priceType: "from",
-            price: 599,
+            price: 397,
             quantity: false,
             available: true,
           },
           {
-            id: "sd-portfolio",
-            name: "Portfólio profissional",
-            detail: "Galeria de trabalhos para profissionais autônomos e pequenos estúdios.",
+            id: "sd-sistema-gestao",
+            name: "Sistema de Gestão para Pequenos Comércios",
+            detail:
+              "Controle seus produtos, estoque e vendas em um só lugar. Organize seu negócio, acompanhe as movimentações e tenha mais facilidade para consultar as informações da sua empresa.",
+            features: [
+              "Cadastro de produtos e preços",
+              "Controle de estoque",
+              "Registro de vendas",
+              "Histórico de movimentações",
+              "Painel de gestão simples e intuitivo",
+              "Acesso online pelo celular ou computador",
+            ],
             priceType: "from",
-            price: 499,
+            price: 597,
             quantity: false,
             available: true,
           },
           {
-            id: "sd-loja-whatsapp",
-            name: "Catálogo e Lojas Virtuais",
-            detail: "Catálogo de produtos com pedidos finalizados pelo WhatsApp.",
+            id: "sd-sistema-agendamento",
+            name: "Sistema de Agendamento Online",
+            detail:
+              "Organize seus horários e facilite o agendamento de clientes com um sistema online integrado ao WhatsApp. Ideal para barbearias, salões de beleza, manicures, profissionais de cílios, designers de sobrancelhas e autônomos.",
+            features: [
+              "Agendamento de serviços online",
+              "Cadastro de clientes e serviços",
+              "Organização de horários disponíveis",
+              "Integração com WhatsApp para contato e confirmação de agendamentos",
+              "Acesso pelo celular ou computador",
+              "Mais praticidade na organização da sua agenda",
+            ],
             priceType: "from",
-            price: 899,
-            quantity: false,
-            available: true,
-          },
-          {
-            id: "sd-sistema-comercio",
-            name: "Sistema para comércio",
-            detail: "Painel para gerenciar produtos, preços, pedidos e estoque.",
-            priceType: "from",
-            price: 799,
-            quantity: false,
-            available: true,
-          },
-          {
-            id: "sd-agendamento",
-            name: "Sistema de Agendamentos + integração com WhatsApp",
-            detail: "Agenda online com horários, confirmações e avisos ao cliente.",
-            priceType: "from",
-            price: 799,
-            quantity: false,
-            available: true,
-          },
-          {
-            id: "sd-integracao-apis",
-            name: "Integração com APIs",
-            detail: "Conexão entre sistemas, meios de pagamento e serviços externos.",
-            priceType: "from",
-            price: 499,
-            quantity: false,
-            available: true,
-          },
-          {
-            id: "sd-manutencao-sites",
-            name: "Manutenção e atualização de sites",
-            detail: "Atualização de conteúdo, correções e acompanhamento do site.",
-            priceType: "from",
-            price: 150,
-            quantity: false,
-            available: true,
-          },
-          {
-            id: "sd-personalizado",
-            name: "Projeto personalizado",
-            detail: "Projetos sob medida, conforme a necessidade do cliente.",
-            priceType: "evaluation",
+            price: 699,
             quantity: false,
             available: true,
           },
@@ -347,6 +320,16 @@ export const serviceCategories: ServiceCategory[] = [
     ],
   },
 ];
+
+function priceRank(item: ServiceItem): number {
+  return item.price ?? Number.POSITIVE_INFINITY;
+}
+
+for (const category of serviceCategories) {
+  for (const group of category.groups) {
+    group.items.sort((a, b) => priceRank(a) - priceRank(b));
+  }
+}
 
 export function getCategory(categoryId: string): ServiceCategory {
   const found = serviceCategories.find((category) => category.id === categoryId);
@@ -410,9 +393,9 @@ const highlightRows: Array<{
   },
   { label: "Diagnóstico de celular", categoryId: "celulares", itemId: "cel-diagnostico" },
   {
-    label: "Site institucional",
+    label: "Catálogo Digital + WhatsApp",
     categoryId: "solucoes-digitais",
-    itemId: "sd-site-institucional",
+    itemId: "sd-catalogo-digital",
   },
 ];
 

@@ -15,10 +15,18 @@ const stats = [
 ];
 
 const businessSolutions = [
-  "Sistemas de controle e gestão com dashboard, painel administrativo e gerenciamento",
-  "Catálogo e Lojas virtuais",
-  "Sistema de Agendamentos + integração com WhatsApp",
-  "Sistemas de gestão (ERP) com integração ao WhatsApp",
+  {
+    name: "Catálogo digital",
+    description: "para quem vende pelo WhatsApp.",
+  },
+  {
+    name: "Sistema de gestão",
+    description: "para quem precisa controlar estoque e vendas.",
+  },
+  {
+    name: "Sistema de agendamento",
+    description: "para barbearias, salões e profissionais autônomos.",
+  },
 ];
 
 function highlightPrice(priceType: string, price?: number) {
@@ -72,14 +80,17 @@ export default function Hero() {
             <ul className="mt-3 grid max-w-xl gap-2.5 sm:grid-cols-2">
               {businessSolutions.map((item) => (
                 <li
-                  key={item}
+                  key={item.name}
                   className="flex items-start gap-2.5 text-[14.5px] leading-snug text-neutral-300"
                 >
                   <span
                     aria-hidden="true"
                     className="mt-[7px] inline-block h-1.5 w-1.5 shrink-0 bg-neon"
                   />
-                  {item}
+                  <span>
+                    <span className="font-medium text-white">{item.name}:</span>{" "}
+                    {item.description}
+                  </span>
                 </li>
               ))}
             </ul>

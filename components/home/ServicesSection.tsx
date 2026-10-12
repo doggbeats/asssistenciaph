@@ -64,6 +64,29 @@ function ServiceList({
                 <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-neutral-500">
                   {item.detail}
                 </p>
+                {item.features && item.features.length > 0 && (
+                  <div className="mt-3.5 max-w-xl">
+                    {item.featuresTitle && (
+                      <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-neutral-500">
+                        {item.featuresTitle}
+                      </p>
+                    )}
+                    <ul className="mt-2 grid gap-1.5">
+                      {item.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-start gap-2.5 text-[13.5px] leading-snug text-neutral-600"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="mt-[6px] inline-block h-1.5 w-1.5 shrink-0 bg-neon"
+                          />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
             <div className="shrink-0 pt-0.5 text-right">
