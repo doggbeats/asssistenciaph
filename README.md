@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CODE_PH — Assistência Técnica & Soluções Digitais
 
-## Getting Started
+**Tecnologia para pessoas e empresas.**
 
-First, run the development server:
+A CODE_PH é um negócio de assistência técnica e soluções digitais que facilita o acesso dos clientes a serviços de manutenção de computadores, notebooks e celulares, além do desenvolvimento de sites, sistemas e outras soluções digitais.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Nosso objetivo é organizar os serviços em um único ambiente online, permitindo que o cliente conheça as opções disponíveis, identifique o que precisa e entre em contato para solicitar um orçamento.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Como funciona
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Site online:** apresenta os serviços, suas descrições e as informações necessárias para solicitar atendimento.
+- **Acesso por link:** o cliente pode acessar o site de qualquer lugar, pelo celular ou computador.
+- **QR Codes e adesivos:** facilitam a divulgação do negócio em materiais físicos, permitindo que o cliente acesse os serviços apontando a câmera do celular.
+- **Solicitação de orçamento:** direciona o cliente para o canal de atendimento, facilitando a coleta das informações necessárias para avaliar o serviço.
+- **Soluções digitais para empresas:** desenvolvimento de sites, sistemas e ferramentas personalizadas para organizar processos e melhorar o atendimento.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Nosso propósito
 
-## Learn More
+Tornar a tecnologia e a assistência técnica mais acessíveis, organizando informações, facilitando o contato e conectando clientes às soluções de que precisam.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**CODE_PH — Assistência Técnica & Soluções Digitais.**
