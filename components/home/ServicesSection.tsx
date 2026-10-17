@@ -23,6 +23,9 @@ function ServiceList({
   hint?: string;
 }) {
   const items = group.items.filter((item) => item.available);
+  const hasPrices = items.some(
+    (item) => item.priceType !== "evaluation" && item.price !== undefined,
+  );
 
   return (
     <div>
@@ -44,7 +47,7 @@ function ServiceList({
 
       <div className="flex items-baseline justify-between gap-4 border-b border-ink pb-2.5 font-mono text-[10.5px] uppercase tracking-[0.16em] text-neutral-500">
         <span>Serviço</span>
-        <span>Valor</span>
+        {hasPrices && <span>Valor</span>}
       </div>
 
       <ul>
@@ -89,9 +92,11 @@ function ServiceList({
                 )}
               </div>
             </div>
-            <div className="shrink-0 pt-0.5 text-right">
-              <PriceTag priceType={item.priceType} price={item.price} />
-            </div>
+            {item.priceType !== "evaluation" && item.price !== undefined && (
+              <div className="shrink-0 pt-0.5 text-right">
+                <PriceTag priceType={item.priceType} price={item.price} />
+              </div>
+            )}
           </li>
         ))}
       </ul>
@@ -131,7 +136,7 @@ export default function ServicesSection() {
           index="01"
           label="SERVIÇOS"
           title="Serviços e soluções CODE_PH"
-          description="Selecione uma categoria para conhecer os serviços disponíveis e os valores praticados. Cada atendimento é avaliado individualmente, e os preços são de referência — o valor final é confirmado após a avaliação técnica."
+          description="Selecione uma categoria para conhecer os serviços disponíveis. A maioria dos serviços é avaliada individualmente — o valor final é confirmado após a avaliação técnica. Apenas as formações completas exibem valor de referência."
         />
 
         <div className="mt-11 grid gap-10 lg:grid-cols-[268px_1fr]">

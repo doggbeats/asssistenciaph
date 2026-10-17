@@ -26,17 +26,6 @@ function ProjectCard({ project, position }: { project: Project; position: number
       </div>
 
       <div className="mt-auto pt-7">
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="border border-line px-2.5 py-1 font-mono text-[11px] text-neutral-600 transition-colors group-hover:border-neutral-400"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
         {project.link && (
           <a
             href={project.link}
@@ -61,7 +50,7 @@ export default function ProjectsSection() {
           index="02"
           label="PROJETOS"
           title="Projetos da CODE_PH"
-          description="Trabalhos entregues, com o problema que cada um resolveu e as tecnologias utilizadas."
+          description="Trabalhos entregues, com o problema que cada um resolveu."
         />
 
         {projects.length > 0 ? (

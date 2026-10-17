@@ -33,8 +33,7 @@ const desktopItems: ServiceItem[] = [
     id: "desktop-backup",
     name: "Backup  & Recuperação de Dados",
     detail: "Cópia de documentos, fotos e programas em um dispositivo indicado pelo cliente.",
-    priceType: "from",
-    price: 80,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -43,7 +42,7 @@ const desktopItems: ServiceItem[] = [
     name: "Diagnóstico de problemas",
     detail: "Identificação da causa de travamentos, desligamentos, erros e falhas.",
     priceType: "from",
-    price: 50,
+    price: 60,
     quantity: true,
     available: true,
   },
@@ -80,18 +79,16 @@ const desktopItems: ServiceItem[] = [
     id: "desktop-manutencao",
     name: "Manutenção completa",
     detail: "Aspiração de poeira, limpeza de ventoinhas, troca de pasta térmica do processador e higienização externa.",
-    priceType: "from",
-    price: 120,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
   {
     id: "desktop-upgrade-formatacao",
-    name: "Upgrade SSD + formatação completa (SSD não incluso)",
+    name: "Upgrade SSD + formatação completa",
     detail:
       "Instalação do SSD com formatação completa do Windows, drivers, Pacote Office, Adobe Reader e demais programas essenciais. Peça não inclusa.",
-    priceType: "fixed",
-    price: 200,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -102,8 +99,7 @@ const notebookItems: ServiceItem[] = [
     id: "notebook-backup",
     name: "Backup & Recuperação de Dados",
     detail: "Cópia de documentos, fotos e programas em um dispositivo indicado pelo cliente.",
-    priceType: "from",
-    price: 80,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -111,8 +107,8 @@ const notebookItems: ServiceItem[] = [
     id: "notebook-diagnostico",
     name: "Diagnóstico de problemas",
     detail: "Identificação da causa de travamentos, desligamentos, erros e falhas.",
-    priceType: "fixed",
-    price: 50,
+    priceType: "from",
+    price: 60,
     quantity: true,
     available: true,
   },
@@ -149,18 +145,16 @@ const notebookItems: ServiceItem[] = [
     id: "notebook-manutencao",
     name: "Manutenção completa",
     detail: "Aspiração de poeira, limpeza de ventoinhas, troca de pasta térmica do processador e higienização externa.",
-    priceType: "from",
-    price: 150,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
   {
     id: "notebook-upgrade-formatacao",
-    name: "Upgrade SSD + formatação completa (SSD não incluso)",
+    name: "Upgrade SSD + formatação completa",
     detail:
       "Instalação do SSD com formatação completa do Windows, drivers, Pacote Office, Adobe Reader e demais programas essenciais. Peça não inclusa.",
-    priceType: "fixed",
-    price: 220,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -201,8 +195,7 @@ export const serviceCategories: ServiceCategory[] = [
             id: "cel-diagnostico",
             name: "Diagnóstico",
             detail: "Verificação do aparelho para identificar a origem do problema.",
-            priceType: "fixed",
-            price: 50,
+            priceType: "evaluation",
             quantity: true,
             available: true,
           },
@@ -210,8 +203,7 @@ export const serviceCategories: ServiceCategory[] = [
             id: "Desbloqueio conta google",
             name: "Desbloqueio de conta Google",
             detail: "Desbloqueio de conta Google em aparelhos bloqueados (Somente com o proprietario do telefone). O valor depende do modelo do aparelho.",
-            priceType: "from",
-            price: 80,
+            priceType: "evaluation",
             quantity: true,
             available: true,
           },
@@ -274,8 +266,25 @@ export const serviceCategories: ServiceCategory[] = [
               "Facilidade para compartilhar nas redes sociais",
               "Atendimento direto pelo WhatsApp",
             ],
-            priceType: "from",
-            price: 397,
+            priceType: "evaluation",
+            quantity: false,
+            available: true,
+          },
+          {
+            id: "sd-site-empresas",
+            name: "Site para Empresas + Fechamento via WhatsApp",
+            detail:
+              "Um site profissional para a sua empresa, com todos os canais de contato direcionados ao WhatsApp. O cliente conhece a empresa, vê os serviços e fecha o atendimento pelo chat, sem fricção.",
+            featuresTitle: "Mais conversões para a sua empresa",
+            features: [
+              "Site profissional com a identidade da sua empresa",
+              "Botão de WhatsApp em todas as páginas",
+              "Apresentação de serviços, produtos e diferenciais",
+              "Formulário de contato que abre direto no WhatsApp",
+              "Otimizado para celulares e para o Google",
+              "Domínio e hospedagem configurados",
+            ],
+            priceType: "evaluation",
             quantity: false,
             available: true,
           },
@@ -292,8 +301,7 @@ export const serviceCategories: ServiceCategory[] = [
               "Painel de gestão simples e intuitivo",
               "Acesso online pelo celular ou computador",
             ],
-            priceType: "from",
-            price: 597,
+            priceType: "evaluation",
             quantity: false,
             available: true,
           },
@@ -310,8 +318,7 @@ export const serviceCategories: ServiceCategory[] = [
               "Acesso pelo celular ou computador",
               "Mais praticidade na organização da sua agenda",
             ],
-            priceType: "from",
-            price: 699,
+            priceType: "evaluation",
             quantity: false,
             available: true,
           },
@@ -320,16 +327,6 @@ export const serviceCategories: ServiceCategory[] = [
     ],
   },
 ];
-
-function priceRank(item: ServiceItem): number {
-  return item.price ?? Number.POSITIVE_INFINITY;
-}
-
-for (const category of serviceCategories) {
-  for (const group of category.groups) {
-    group.items.sort((a, b) => priceRank(a) - priceRank(b));
-  }
-}
 
 export function getCategory(categoryId: string): ServiceCategory {
   const found = serviceCategories.find((category) => category.id === categoryId);
@@ -385,17 +382,25 @@ const highlightRows: Array<{
   priceType?: PriceType;
   price?: number;
 }> = [
-  { label: "Formatação completa", categoryId: "computadores", itemId: "desktop-formatacao" },
   {
-    label: "Upgrade SSD + formatação completa",
+    label: "Formatação completa (com backup)",
     categoryId: "computadores",
-    itemId: "desktop-upgrade-formatacao",
+    itemId: "desktop-formatacao-completa",
   },
-  { label: "Diagnóstico de celular", categoryId: "celulares", itemId: "cel-diagnostico" },
   {
-    label: "Catálogo Digital + WhatsApp",
-    categoryId: "solucoes-digitais",
-    itemId: "sd-catalogo-digital",
+    label: "Formatação completa (sem backup)",
+    categoryId: "computadores",
+    itemId: "desktop-formatacao",
+  },
+  {
+    label: "Notebook: formatação (com backup)",
+    categoryId: "computadores",
+    itemId: "notebook-formatacao-completa",
+  },
+  {
+    label: "Notebook: formatação (sem backup)",
+    categoryId: "computadores",
+    itemId: "notebook-formatacao",
   },
 ];
 

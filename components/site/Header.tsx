@@ -38,9 +38,11 @@ export default function Header() {
               href={link.href}
               className={cn(
                 "border-b-2 py-1 font-mono text-[11.5px] uppercase tracking-[0.12em] transition-colors",
-                pathname === link.href
-                  ? "border-neon text-ink"
-                  : "border-transparent text-neutral-500 hover:border-neutral-300 hover:text-ink",
+                link.href === "/orcamento"
+                  ? "border-transparent bg-ink px-3 text-white hover:bg-ink-soft"
+                  : pathname === link.href
+                    ? "border-neon text-ink"
+                    : "border-transparent text-neutral-500 hover:border-neutral-300 hover:text-ink",
               )}
             >
               {link.label}
@@ -51,7 +53,7 @@ export default function Header() {
         <div className="hidden lg:block">
           <Link
             href="/orcamento"
-            className="inline-flex h-10 items-center bg-neon px-4 text-[13.5px] font-semibold text-black transition-colors hover:bg-neon-deep"
+            className="inline-flex h-10 items-center bg-ink px-4 text-[13.5px] font-semibold text-white transition-colors hover:bg-ink-soft"
           >
             Solicitar orçamento
           </Link>
@@ -98,9 +100,11 @@ export default function Header() {
                   onClick={() => setOpen(false)}
                   className={cn(
                     "flex min-h-12 items-center justify-between border-b border-line border-l-2 pl-3 font-mono text-[12.5px] uppercase tracking-[0.1em]",
-                    pathname === link.href
-                      ? "border-l-neon text-ink"
-                      : "border-l-transparent text-neutral-600",
+                    link.href === "/orcamento"
+                      ? "border-l-transparent bg-ink px-3 text-white"
+                      : pathname === link.href
+                        ? "border-l-neon text-ink"
+                        : "border-l-transparent text-neutral-600",
                   )}
                 >
                   {link.label}
@@ -114,7 +118,7 @@ export default function Header() {
           <Link
             href="/orcamento"
             onClick={() => setOpen(false)}
-            className="mt-5 flex h-12 items-center justify-center bg-neon text-[15px] font-semibold text-black"
+            className="mt-5 flex h-12 items-center justify-center bg-ink text-[15px] font-semibold text-white"
           >
             Solicitar orçamento
           </Link>
