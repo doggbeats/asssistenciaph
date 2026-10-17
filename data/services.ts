@@ -392,16 +392,6 @@ const highlightRows: Array<{
     categoryId: "computadores",
     itemId: "desktop-formatacao",
   },
-  {
-    label: "Notebook: formatação (com backup)",
-    categoryId: "computadores",
-    itemId: "notebook-formatacao-completa",
-  },
-  {
-    label: "Notebook: formatação (sem backup)",
-    categoryId: "computadores",
-    itemId: "notebook-formatacao",
-  },
 ];
 
 export function getHighlightRows(): HighlightRow[] {
