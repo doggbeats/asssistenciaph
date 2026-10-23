@@ -722,7 +722,7 @@ export default function QuoteBuilder() {
           <button
             type="button"
             onClick={send}
-            className="mt-6 flex h-13 w-full items-center justify-center bg-neon px-5 text-[15px] font-semibold text-black transition-colors hover:bg-neon-deep"
+            className="budget-btn mt-6 flex h-13 w-full items-center justify-center bg-neon px-5 text-[15px] font-semibold text-black hover:bg-neon-deep"
           >
             Enviar orçamento pelo WhatsApp
           </button>
@@ -756,7 +756,7 @@ export default function QuoteBuilder() {
             <button
               type="button"
               onClick={send}
-              className="h-11 shrink-0 bg-neon px-4 text-[14px] font-semibold text-black transition-colors hover:bg-neon-deep"
+              className="budget-btn h-11 shrink-0 bg-neon px-4 text-[14px] font-semibold text-black hover:bg-neon-deep"
             >
               Enviar no WhatsApp
             </button>

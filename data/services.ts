@@ -51,8 +51,7 @@ const desktopItems: ServiceItem[] = [
     name: "Formatação Completa (Com Backup até 100GB)",
     detail:
       "Salvamento prévio de arquivos, instalação limpa do Windows, retorno dos dados do cliente e utilitários essenciais.",
-    priceType: "fixed",
-    price: 180,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -61,8 +60,7 @@ const desktopItems: ServiceItem[] = [
     name: "Formatação Completa (Sem Backup)",
     detail:
       "Instalação limpa do Windows com drivers e atualizações, Pacote Office, Adobe Reader, WinRAR e outros programas essenciais.",
-    priceType: "fixed",
-    price: 120,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -70,8 +68,7 @@ const desktopItems: ServiceItem[] = [
     id: "desktop-programas",
     name: "Instalação e configuração de programas",
     detail: "Office, navegadores, antivírus, leitores de PDF e o que você precisar. Ajustes de inicialização, contas, impressora, rede e preferências do usuário.",
-    priceType: "from",
-    price: 80,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -117,8 +114,7 @@ const notebookItems: ServiceItem[] = [
     name: "Formatação Completa (Com Backup até 100GB)",
     detail:
       "Salvamento prévio de arquivos, instalação limpa do Windows, retorno dos dados do cliente e utilitários essenciais.",
-    priceType: "fixed",
-    price: 200,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -127,8 +123,7 @@ const notebookItems: ServiceItem[] = [
     name: "Formatação Completa (sem Backup)",
     detail:
       "Instalação limpa do Windows com drivers e atualizações, Pacote Office, Adobe Reader, WinRAR e outros programas essenciais.",
-    priceType: "from",
-    price: 130,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -136,8 +131,7 @@ const notebookItems: ServiceItem[] = [
     id: "notebook-programas",
     name: "Instalação e configuração de programas",
     detail: "Office, navegadores, antivírus, leitores de PDF e o que você precisar. Ajustes de inicialização, contas, impressora, rede e preferências do usuário.",
-    priceType: "from",
-    price: 80,
+    priceType: "evaluation",
     quantity: true,
     available: true,
   },
@@ -257,7 +251,7 @@ export const serviceCategories: ServiceCategory[] = [
         items: [
           {
             id: "sd-catalogo-digital",
-            name: "Catálogo Digital + WhatsApp",
+            name: "Sistema de Catálogo Digital + WhatsApp",
             detail:
               "Divulgue seus produtos em um único link, facilite o atendimento e torne seus pedidos mais organizados. Seus clientes escolhem os produtos no catálogo e enviam o pedido diretamente pelo WhatsApp.",
             featuresTitle: "Mais praticidade para vender",
@@ -290,9 +284,9 @@ export const serviceCategories: ServiceCategory[] = [
           },
           {
             id: "sd-sistema-gestao",
-            name: "Sistema de Gestão para Pequenos Comércios",
+            name: "PDV — Sistemas para Balcão",
             detail:
-              "Controle seus produtos, estoque e vendas em um só lugar. Organize seu negócio, acompanhe as movimentações e tenha mais facilidade para consultar as informações da sua empresa.",
+              "PDV para padarias, distribuidoras, lojas de conveniência, mercearias e similares. Controle seus produtos, estoque e vendas em um só lugar. Organize seu negócio, acompanhe as movimentações e tenha mais facilidade para consultar as informações da sua empresa.",
             features: [
               "Cadastro de produtos e preços",
               "Controle de estoque",
@@ -307,7 +301,7 @@ export const serviceCategories: ServiceCategory[] = [
           },
           {
             id: "sd-sistema-agendamento",
-            name: "Sistema de Agendamento Online",
+            name: "Sistema de Agendamento para Manicures, Barbearias e Salões de Beleza",
             detail:
               "Organize seus horários e facilite o agendamento de clientes com um sistema online integrado ao WhatsApp. Ideal para barbearias, salões de beleza, manicures, profissionais de cílios, designers de sobrancelhas e autônomos.",
             features: [
@@ -383,14 +377,14 @@ const highlightRows: Array<{
   price?: number;
 }> = [
   {
-    label: "Formatação completa (com backup)",
+    label: "Diagnóstico de desktop",
     categoryId: "computadores",
-    itemId: "desktop-formatacao-completa",
+    itemId: "desktop-diagnostico",
   },
   {
-    label: "Formatação completa (sem backup)",
+    label: "Diagnóstico de notebook",
     categoryId: "computadores",
-    itemId: "desktop-formatacao",
+    itemId: "notebook-diagnostico",
   },
 ];
 

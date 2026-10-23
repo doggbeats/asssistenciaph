@@ -98,7 +98,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/orcamento"
-                className="inline-flex h-13 items-center justify-center bg-neon px-7 text-[15px] font-semibold text-black transition-colors hover:bg-neon-deep"
+                className="budget-btn inline-flex h-13 items-center justify-center bg-neon px-7 text-[15px] font-semibold text-black hover:bg-neon-deep"
               >
                 Montar orçamento
               </Link>

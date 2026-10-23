@@ -45,7 +45,7 @@ export default function QuoteCall() {
 
         <Link
           href="/orcamento"
-          className="inline-flex h-14 shrink-0 items-center justify-center gap-3 bg-neon px-8 text-[15px] font-semibold text-black transition-colors hover:bg-neon-deep"
+          className="budget-btn inline-flex h-14 shrink-0 items-center justify-center gap-3 bg-neon px-8 text-[15px] font-semibold text-black hover:bg-neon-deep"
         >
           Montar orçamento
           <span aria-hidden="true">→</span>

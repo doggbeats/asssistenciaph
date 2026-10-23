@@ -136,7 +136,7 @@ export default function ServicesSection() {
           index="01"
           label="SERVIÇOS"
           title="Serviços e soluções CODE_PH"
-          description="Selecione uma categoria para conhecer os serviços disponíveis. A maioria dos serviços é avaliada individualmente — o valor final é confirmado após a avaliação técnica. Apenas as formações completas exibem valor de referência."
+          description="Selecione uma categoria para conhecer os serviços disponíveis. A maioria dos serviços é avaliada individualmente — o valor final é confirmado após a avaliação técnica. Apenas o diagnóstico exibe valor de referência."
         />
 
         <div className="mt-11 grid gap-10 lg:grid-cols-[268px_1fr]">

@@ -13,7 +13,7 @@ export default function PriceTag({ priceType, price, className, plain }: PriceTa
   if (priceType === "evaluation" || price === undefined) {
     return (
       <span className={cn("font-mono text-[12.5px] text-neutral-500", className)}>
-        Avaliação necessária
+        Necessidade de avaliação
       </span>
     );
   }

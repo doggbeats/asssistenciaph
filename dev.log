@@ -1,0 +1,46 @@
+
+> my-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.4.0 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://54.232.189.113:3000
+- Environments: .env.local, .env
+✓ Ready in 26.0s
+⚠ Warning: Next.js ignored package-lock.json in C:\Users\user because it is outside the current Git repository (C:\Users\user\Desktop\Meus projetos\assistencia_tec\my-app).
+ To use this directory, set `turbopack.root` in your Next.js config.
+
+✓ Running next.config.ts took 6.4s
+- Cache Components enabled
+- Partial Prefetching enabled
+- Experiments (use with caution):
+  ✓ agentFeedback
+
+○ Compiling / ...
+ GET / 200 in 3.3s (next.js: 2.3s, application-code: 997ms)
+ GET / 200 in 4.2s (next.js: 5ms, application-code: 4.2s)
+ GET / 200 in 132ms (next.js: 5ms, application-code: 127ms)
+✓ Compiled in 447ms
+ GET / 200 in 116ms (next.js: 6ms, application-code: 110ms)
+✓ Compiled in 52ms
+ GET / 200 in 123ms (next.js: 4ms, application-code: 119ms)
+✓ Compiled in 52ms
+ GET / 200 in 124ms (next.js: 6ms, application-code: 118ms)
+✓ Compiled in 58ms
+ GET / 200 in 321ms (next.js: 7ms, application-code: 314ms)
+ GET / 200 in 170ms (next.js: 3ms, application-code: 167ms)
+ GET /servicos 404 in 920ms (next.js: 816ms, application-code: 104ms)
+ GET /orcamento 200 in 146ms (next.js: 20ms, application-code: 125ms)
+ GET / 200 in 218ms (next.js: 3ms, application-code: 215ms)
+ GET /orcamento 200 in 110ms (next.js: 2ms, application-code: 108ms)
+ GET /orcamento 200 in 93ms (next.js: 2ms, application-code: 91ms)
+ GET /orcamento 200 in 101ms (next.js: 2ms, application-code: 99ms)
+ GET /orcamento 200 in 114ms (next.js: 3ms, application-code: 112ms)
+ GET / 200 in 108ms (next.js: 3ms, application-code: 105ms)
+ GET / 200 in 230ms (next.js: 4ms, application-code: 226ms)
+✓ Compiled in 46ms
+ GET / 200 in 197ms (next.js: 5ms, application-code: 192ms)
+ GET / 200 in 158ms (next.js: 3ms, application-code: 155ms)
+ GET / 200 in 136ms (next.js: 4ms, application-code: 132ms)
+ GET / 200 in 112ms (next.js: 3ms, application-code: 109ms)
+^C^C

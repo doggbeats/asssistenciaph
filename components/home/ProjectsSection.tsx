@@ -1,9 +1,39 @@
+import Image from "next/image";
 import SectionHeading from "@/components/home/SectionHeading";
 import { projects, type Project } from "@/data/projects";
 
 function ProjectCard({ project, position }: { project: Project; position: number }) {
   return (
     <article className="group flex h-full flex-col border border-line bg-white p-6 transition-colors hover:border-ink md:p-8">
+      {project.image && (
+        project.link ? (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative -mx-6 -mt-6 mb-6 block h-40 overflow-hidden border-b border-line bg-white sm:h-48 md:-mx-8 md:-mt-8 md:h-56"
+          >
+            <Image
+              src={project.image}
+              alt={`Captura de tela do projeto ${project.name}`}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-contain object-center p-1"
+            />
+          </a>
+        ) : (
+          <div className="relative -mx-6 -mt-6 mb-6 h-40 overflow-hidden border-b border-line bg-white sm:h-48 md:-mx-8 md:-mt-8 md:h-56">
+            <Image
+              src={project.image}
+              alt={`Captura de tela do projeto ${project.name}`}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-contain object-center p-1"
+            />
+          </div>
+        )
+      )}
+
       <div className="flex items-center justify-between gap-4 border-b border-line pb-4">
         <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-neutral-400">
           Projeto {String(position).padStart(2, "0")}
@@ -14,9 +44,11 @@ function ProjectCard({ project, position }: { project: Project; position: number
       <h3 className="mt-5 text-[19px] font-semibold leading-snug tracking-tight text-ink">
         {project.name}
       </h3>
-      <p className="mt-3 text-[15px] leading-relaxed text-neutral-600">
-        {project.description}
-      </p>
+      {project.description && (
+        <p className="mt-3 text-[15px] leading-relaxed text-neutral-600">
+          {project.description}
+        </p>
+      )}
 
       <div className="mt-6 border-l-2 border-neon pl-4">
         <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-neutral-500">
@@ -25,19 +57,17 @@ function ProjectCard({ project, position }: { project: Project; position: number
         <p className="mt-2 text-sm leading-relaxed text-neutral-700">{project.problem}</p>
       </div>
 
-      <div className="mt-auto pt-7">
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 font-mono text-[13px] font-semibold text-ink underline decoration-neon decoration-2 underline-offset-4 transition-colors hover:decoration-ink"
-          >
-            Ver projeto
-            <span aria-hidden="true">→</span>
-          </a>
-        )}
-      </div>
+      {project.link && (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-7 inline-flex items-center gap-2 font-mono text-[13px] font-semibold text-ink underline decoration-neon decoration-2 underline-offset-4 transition-colors hover:decoration-ink"
+        >
+          Ver projeto
+          <span aria-hidden="true">→</span>
+        </a>
+      )}
     </article>
   );
 }

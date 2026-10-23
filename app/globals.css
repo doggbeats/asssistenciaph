@@ -63,6 +63,20 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.budget-btn {
+  transition-property: transform, background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.budget-btn:hover {
+  transform: translateY(-2px);
+}
+
+.budget-btn:active {
+  transform: translateY(0);
+}
+
 ::selection {
   background-color: var(--color-neon);
   color: #000000;

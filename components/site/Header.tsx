@@ -36,14 +36,14 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={cn(
-                "border-b-2 py-1 font-mono text-[11.5px] uppercase tracking-[0.12em] transition-colors",
-                link.href === "/orcamento"
-                  ? "border-transparent bg-ink px-3 text-white hover:bg-ink-soft"
-                  : pathname === link.href
-                    ? "border-neon text-ink"
-                    : "border-transparent text-neutral-500 hover:border-neutral-300 hover:text-ink",
-              )}
+            className={cn(
+              "border-b-2 py-1 font-mono text-[11.5px] uppercase tracking-[0.12em] transition-colors",
+              link.href === "/orcamento"
+                ? "border-transparent bg-ink px-3 text-white hover:bg-ink-soft hover:shadow-[0_0_0_3px_rgba(57,255,20,0.35)]"
+                : pathname === link.href
+                  ? "border-neon text-ink"
+                  : "border-transparent text-neutral-500 hover:border-neutral-300 hover:text-ink",
+            )}
             >
               {link.label}
             </Link>
@@ -53,7 +53,7 @@ export default function Header() {
         <div className="hidden lg:block">
           <Link
             href="/orcamento"
-            className="inline-flex h-10 items-center bg-ink px-4 text-[13.5px] font-semibold text-white transition-colors hover:bg-ink-soft"
+            className="budget-btn inline-flex h-10 items-center bg-ink px-4 text-[13.5px] font-semibold text-white hover:bg-ink-soft"
           >
             Solicitar orçamento
           </Link>
@@ -118,7 +118,7 @@ export default function Header() {
           <Link
             href="/orcamento"
             onClick={() => setOpen(false)}
-            className="mt-5 flex h-12 items-center justify-center bg-ink text-[15px] font-semibold text-white"
+            className="budget-btn mt-5 flex h-12 items-center justify-center bg-ink text-[15px] font-semibold text-white hover:bg-ink-soft"
           >
             Solicitar orçamento
           </Link>

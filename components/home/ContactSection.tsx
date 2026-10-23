@@ -91,14 +91,14 @@ export default function ContactSection() {
                 href={whatsappUrl(contactMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 flex h-13 items-center justify-center bg-neon px-6 text-[15px] font-semibold text-black transition-colors hover:bg-neon-deep"
+                className="budget-btn mt-7 flex h-13 items-center justify-center bg-neon px-6 text-[15px] font-semibold text-black hover:bg-neon-deep"
               >
                 Falar pelo WhatsApp
               </a>
 
               <Link
                 href="/orcamento"
-                className="mt-3 flex h-13 items-center justify-center border border-ink-line px-6 text-[15px] font-semibold text-white transition-colors hover:border-neutral-600 hover:bg-white/5"
+                className="budget-btn mt-3 flex h-13 items-center justify-center border border-ink-line px-6 text-[15px] font-semibold text-white hover:border-neutral-600 hover:bg-white/5"
               >
                 Montar orçamento
               </Link>
