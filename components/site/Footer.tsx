@@ -88,7 +88,15 @@ export default async function Footer() {
           <p>
             © {year} {brand.legalName}
           </p>
-          <p>{brand.tagline}</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link
+              href="/privacidade"
+              className="transition-colors hover:text-neon"
+            >
+              Privacidade e LGPD
+            </Link>
+            <p>{brand.tagline}</p>
+          </div>
         </div>
       </div>
     </footer>

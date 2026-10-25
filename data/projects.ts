@@ -46,7 +46,7 @@ export const projects: Project[] = [
   },
     {
     id: "pdv-gestao",
-  name: "PDV gestãode vendas",
+  name: "PDV gestão de vendas",
     problem:
       "Gerenciar vendas, estoque e clientes de forma integrada: o sistema permite registrar produtos, controlar estoque, emitir notas fiscais e gerar relatórios de vendas, facilitando a gestão do negócio.",
     link: "https://pdv-vendas-balcao.vercel.app/",

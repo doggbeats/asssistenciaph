@@ -22,6 +22,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   experimental: {
     agentFeedback: true,
+    agentUpgrade: "security",
   },
   cacheComponents: true,
   partialPrefetching: true,

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
-import WhatsAppFloat from "@/components/site/WhatsAppFloat";
+import AssistantWidget from "@/components/assistant/AssistantWidget";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | CODE_PH",
   },
   description:
-    "Assistência técnica para computadores e celulares e desenvolvimento de soluções digitais para facilitar a gestão do seu negócio. Monte seu orçamento e envie pelo WhatsApp.",
+    "Assistência técnica para computadores e celulares e desenvolvimento de soluções digitais para facilitar a gestão do seu negócio. Envie seu orçamento pelo WhatsApp.",
   keywords: [
     "assistência técnica",
     "formatação de computador",
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <WhatsAppFloat />
+        <AssistantWidget />
       </body>
     </html>
   );

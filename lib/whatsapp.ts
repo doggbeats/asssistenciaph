@@ -8,11 +8,28 @@ const configuredNumber = onlyDigits(
 export const whatsappDisplay: string | null =
   configuredNumber.length > 0 ? nationalPhone(configuredNumber) : null;
 
-export function whatsappUrl(message: string): string {
+/**
+ * Monta o link do WhatsApp com a mensagem codificada.
+ * Função pura para permitir testar a codificação sem depender do ambiente.
+ */
+export function buildWhatsAppUrl(number: string, message: string): string {
+  const digits = onlyDigits(number);
   const text = encodeURIComponent(message);
-  return configuredNumber.length > 0
-    ? `https://wa.me/${configuredNumber}?text=${text}`
+  return digits.length > 0
+    ? `https://wa.me/${digits}?text=${text}`
     : `https://wa.me/?text=${text}`;
+}
+
+export function whatsappUrl(message: string): string {
+  return buildWhatsAppUrl(configuredNumber, message);
+}
+
+export const QUOTE_MESSAGE =
+  "Olá, CODE_PH! Vim pelo site e gostaria de solicitar um orçamento.";
+
+export function quoteWhatsAppUrl(summary?: string): string {
+  const details = summary?.trim();
+  return whatsappUrl(details || QUOTE_MESSAGE);
 }
 
 export interface QuoteItem {
