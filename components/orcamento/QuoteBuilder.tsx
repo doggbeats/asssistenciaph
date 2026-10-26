@@ -41,7 +41,7 @@ function ServiceOption({ item, quantity, onToggle, onChangeQuantity, tag }: Serv
         on ? "border-neon" : "border-line",
       )}
     >
-      <label className="flex cursor-pointer items-start gap-3.5 p-4">
+      <label className="flex cursor-pointer items-start gap-2.5 p-4 sm:gap-3.5">
         <input
           type="checkbox"
           className="sr-only"
@@ -68,10 +68,10 @@ function ServiceOption({ item, quantity, onToggle, onChangeQuantity, tag }: Serv
         </span>
 
         <span className="min-w-0 flex-1">
-          <span className="block text-[15.5px] font-medium leading-snug text-ink">
+          <span className="block break-words text-[15.5px] font-medium leading-snug text-ink">
             {item.name}
           </span>
-          <span className="mt-1.5 block text-[13.5px] leading-relaxed text-neutral-500">
+          <span className="mt-1.5 block break-words text-[13.5px] leading-relaxed text-neutral-500">
             {item.detail}
           </span>
           {tag && (
@@ -81,10 +81,10 @@ function ServiceOption({ item, quantity, onToggle, onChangeQuantity, tag }: Serv
           )}
         </span>
 
-        <span className="shrink-0 pt-0.5 text-right">
+        <span className="block max-w-[45%] shrink-0 pt-0.5 text-right">
           <PriceTag priceType={item.priceType} price={item.price} />
           {on && quantity > 1 && item.price !== undefined && (
-            <span className="mt-1.5 block font-mono text-[11.5px] text-neutral-500">
+            <span className="mt-1.5 block font-mono text-[11.5px] leading-snug text-neutral-500">
               {quantity} × {formatBRL(item.price)}
             </span>
           )}
