@@ -9,7 +9,7 @@ export const brand = {
 export const navLinks = [
   { href: "/#inicio", label: "Início" },
   { href: "/#servicos", label: "Serviços" },
-  { href: "/#projetos", label: "Projetos" },
+  { href: "/#projetos", label: "Sites e Sistemas" },
   { href: "/orcamento", label: "Orçamento" },
   { href: "/#contato", label: "Contato" },
 ] as const;

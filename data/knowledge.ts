@@ -604,7 +604,7 @@ Atua em duas frentes:
 - assistência técnica para computadores, notebooks e celulares;
 - soluções digitais: sites, catálogo digital, PDV, controle de estoque, sistema de agendamento e ferramentas personalizadas.
 
-O atendimento acontece pelo WhatsApp. O Instagram é @code_ph_sd. O site reúne serviços, projetos e os canais de contato.`,
+O atendimento acontece pelo WhatsApp. O Instagram é @code_ph_sd. O site reúne serviços, sites e sistemas e os canais de contato.`,
     tags: [
       "code_ph",
       "empresa",
