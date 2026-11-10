@@ -26,9 +26,7 @@ export const projects: Project[] = [
   link: "https://asssistenciaph.vercel.app/",
   image: "/assitentev.jpg",
   hoverImage: "/assitentev2.jpg",
-  oldPrice: 1699,
-  price: 1499,
-    payment: "Avista ou R$ 500 entrada + 3 parcelas de R$ 366",
+ 
 
   ctaLabel: "COMPRAR AGORA PELO WHATSAPP",
 },
@@ -43,9 +41,7 @@ export const projects: Project[] = [
     link: "https://catalago-whatsapp.vercel.app/",
     image: "/catalogo-tenis.jpg",
     hoverImage: "/catalago1.jpg",
-    oldPrice: 799,
-    price: 599,
-    payment: "Avista ou R$ 400 entrada + 2 parcelas de R$ 200",
+  
   },
  
     {
@@ -58,9 +54,7 @@ export const projects: Project[] = [
    link: "https://portifolio-cyber.vercel.app/",
       image: "/portifolio.jpg",
       hoverImage: "/portifolio1.jpg",
-    oldPrice: 599,
-    price: 399,
-    payment: "Avista ou R$ 300 entrada + 2 parcelas de R$ 150",
+ 
   },
   {
     id: "sr-srta-gourmet",
@@ -69,27 +63,36 @@ export const projects: Project[] = [
     "Site profissional para buffet, com apresentação de serviços, cardápio, informações e formulário para solicitação de orçamentos.",
     problem:
       "Transformar pedidos de orçamento espalhados em mensagens em um fluxo organizado: o cliente monta a solicitação pelo site, envia pelo WhatsApp e o buffet retorna com a proposta avaliando cada evento de forma individual.",
-    link: "https://catalago-whatsapp.vercel.app/",
+    link: "https://sresragourmet.vercel.app/",
     image: "/Gourmet.jpg",
     hoverImage: "/Gourmet1.jpg",
-    oldPrice: 999,
-    price: 799,
-    payment: "Avista ou R$ 500 entrada + 2 parcelas de R$ 250",
+   
   },
 
    {
     id: "pdv-gestao",
      name: "PDV gestão de vendas",
      description:
-    "Site profissional para buffet, com apresentação de serviços, cardápio, informações e formulário para solicitação de orçamentos.",
+       "Sistema de ponto de venda para gestão de vendas, estoque e clientes. Ideal para distribuidoras, lojas de varejo e pequenos negócios.",
      problem:
-      "Gerenciar vendas, estoque e clientes de forma integrada: o sistema permite registrar produtos, controlar estoque, emitir notas fiscais e gerar relatórios de vendas, facilitando a gestão do negócio.",
+      "Gerenciar vendas, estoque e clientes de forma integrada: o sistema permite registrar produtos, controlar estoque, emitir notas fiscais e gerar relatórios de vendas, facilitando a gestão do negócio. Ideal para pequenos e médios empreendedores que desejam otimizar suas operações e aumentar a eficiência do seu ponto de venda.",
     link: "https://pdv-vendas-balcao.vercel.app/",
     image: "/pdv.jpg",
     hoverImage: "/pdv1.jpg",
-    oldPrice: 1700,
-    price: 1499,
-    payment: "Entrada de 500 R$ + 3 parcelas de 400 R$",
+  },
+  
+   {
+    id: "Agendamento-online",
+     name: "AgendamentoON - Saas",
+     description:
+       "Sistema de agendamento online para serviços e consultas. Ideal para barbearias, manicures e outros estabelecimentos de beleza.",
+     problem:
+      "Simplificar o processo de agendamento para clientes: o sistema permite que os usuários marquem horários disponíveis, recebam confirmações e lembretes, e que os provedores de serviço gerenciem suas agendas de forma eficiente. Ideal para clínicas, salões de beleza e outros prestadores de serviços que desejam oferecer uma experiência de agendamento conveniente e moderna.",
+    link: "https://agenedix.vercel.app/",
+    image: "/agendamento.jpg",
+    hoverImage: "/agendamentosss.jpg",
+   
   
   },
+  
 ];

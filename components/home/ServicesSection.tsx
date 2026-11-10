@@ -3,6 +3,7 @@
 import { useState } from "react";
 import SectionHeading from "@/components/home/SectionHeading";
 import PriceTag from "@/components/ui/PriceTag";
+import Reveal from "@/components/ui/Reveal";
 import {
   countCategoryItems,
   getCategory,
@@ -132,15 +133,17 @@ export default function ServicesSection() {
   return (
     <section id="servicos" className="scroll-mt-20 bg-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeading
-          index="01"
-          label="SERVIÇOS"
-          title="Serviços e soluções CODE_PH"
-          description="Selecione uma categoria para conhecer os serviços disponíveis. A maioria dos serviços é avaliada individualmente — o valor final é confirmado após a avaliação técnica. Apenas o diagnóstico exibe valor de referência."
-        />
+        <Reveal from="down">
+          <SectionHeading
+            index="01"
+            label="SERVIÇOS"
+            title="Serviços e soluções CODE_PH"
+            description="Selecione uma categoria para conhecer os serviços disponíveis. A maioria dos serviços é avaliada individualmente — o valor final é confirmado após a avaliação técnica. Apenas o diagnóstico exibe valor de referência."
+          />
+        </Reveal>
 
         <div className="mt-11 grid gap-10 lg:grid-cols-[268px_1fr]">
-          <div className="min-w-0">
+          <Reveal className="min-w-0" from="left" delay={80}>
             <div className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 lg:hidden">
               {serviceCategories.map((item) => (
                 <button
@@ -194,9 +197,9 @@ export default function ServicesSection() {
               Não encontrou o que precisa? Descreva o problema no orçamento e a CODE_PH
               responde pelo WhatsApp.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="min-w-0">
+          <Reveal className="min-w-0" from="right" delay={160}>
             <div className="mb-7 border-b border-ink pb-6">
               <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-neutral-400">
                 Categoria {String(categoryNumber).padStart(2, "0")}
@@ -209,7 +212,7 @@ export default function ServicesSection() {
               </p>
             </div>
             <CategoryContent category={category} />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,13 +1,21 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
 interface RevealProps {
   children: ReactNode;
   delay?: number;
+  from?: "up" | "down" | "left" | "right";
+  className?: string;
 }
 
-export default function Reveal({ children, delay = 0 }: RevealProps) {
+export default function Reveal({
+  children,
+  delay = 0,
+  from = "up",
+  className,
+}: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -22,7 +30,7 @@ export default function Reveal({ children, delay = 0 }: RevealProps) {
           observer.disconnect();
         }
       },
-      { threshold: 0.12 },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
     );
 
     observer.observe(node);
@@ -32,12 +40,10 @@ export default function Reveal({ children, delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "none" : "translateY(16px)",
-        transition: "opacity 1s ease, transform 1s ease",
-        transitionDelay: `${delay}ms`,
-      }}
+      className={cn("reveal", className)}
+      data-visible={visible}
+      data-from={from}
+      style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
     </div>

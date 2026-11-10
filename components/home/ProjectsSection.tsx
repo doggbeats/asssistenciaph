@@ -4,6 +4,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import SectionHeading from "@/components/home/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 import { projects, type Project } from "@/data/projects";
 import { whatsappUrl } from "@/lib/whatsapp";
 
@@ -131,21 +132,21 @@ export default function ProjectsSection() {
   return (
     <section id="projetos" className="scroll-mt-20 bg-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeading
-          index="02"
-          label="SITES E SISTEMAS"
-          title="Sites e Sistemas da CODE_PH"
-          description="Trabalhos entregues, com o problema que cada um resolveu."
-        />
+        <Reveal>
+          <SectionHeading
+            index="02"
+            label="SITES E SISTEMAS"
+            title="Sites e Sistemas da CODE_PH"
+            description="Trabalhos entregues, com o problema que cada um resolveu."
+          />
+        </Reveal>
 
         {projects.length > 0 ? (
           <div className="mt-11 grid gap-6 md:grid-cols-2">
             {projects.map((project, position) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                position={position + 1}
-              />
+              <Reveal key={project.id} delay={(position % 2) * 90}>
+                <ProjectCard project={project} position={position + 1} />
+              </Reveal>
             ))}
           </div>
         ) : (

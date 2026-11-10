@@ -29,6 +29,8 @@ const businessSolutions = [
   },
 ];
 
+const enter = (delay: number) => ({ animationDelay: `${delay}ms` });
+
 function highlightPrice(priceType: string, price?: number) {
   if (priceType === "evaluation" || price === undefined) {
     return <span className="text-neutral-500">sob avaliação</span>;
@@ -56,28 +58,42 @@ export default function Hero() {
       <div className="relative mx-auto max-w-6xl px-5 pt-16 md:pt-24 lg:pt-28">
         <div className="grid gap-14 lg:grid-cols-[1fr_384px] lg:items-start lg:gap-12">
           <div className="min-w-0">
-            <p className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-neutral-500">
+            <p
+              className="hero-enter flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-neutral-500"
+              style={enter(0)}
+            >
               <span aria-hidden="true" className="inline-block h-[7px] w-[7px] bg-neon" />
               {brand.subtitle}
             </p>
 
-            <h1 className="mt-7 inline-block font-mono text-[52px] font-bold leading-none tracking-tight transition-transform duration-700 ease-in-out hover:rotate-[360deg] sm:text-[64px] md:text-[86px]">
-              CODE<span className="text-neon">_</span>PH
-            </h1>
+            <div className="hero-enter mt-7" style={enter(60)}>
+              <h1 className="inline-block font-mono text-[52px] font-bold leading-none tracking-tight transition-transform duration-700 ease-in-out hover:rotate-[360deg] sm:text-[64px] md:text-[86px]">
+                CODE<span className="text-neon">_</span>PH
+              </h1>
+            </div>
 
-            <p className="mt-8 text-[22px] font-medium leading-snug tracking-tight text-neutral-200 md:text-[30px]">
+            <p
+              className="hero-enter mt-8 text-[22px] font-medium leading-snug tracking-tight text-neutral-200 md:text-[30px]"
+              style={enter(130)}
+            >
               {brand.tagline}
             </p>
 
-            <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-neutral-400 md:text-[17px]">
+            <p
+              className="hero-enter mt-5 max-w-xl text-[16px] leading-relaxed text-neutral-400 md:text-[17px]"
+              style={enter(200)}
+            >
               Assistência técnica para computadores e celulares e desenvolvimento de
               soluções digitais para facilitar a gestão do seu negócio.
             </p>
 
-            <p className="mt-7 font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
+            <p
+              className="hero-enter mt-7 font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500"
+              style={enter(260)}
+            >
               Soluções para o seu negócio
             </p>
-            <ul className="mt-3 grid max-w-xl gap-2.5 sm:grid-cols-2">
+            <ul className="hero-enter mt-3 grid max-w-xl gap-2.5 sm:grid-cols-2" style={enter(310)}>
               {businessSolutions.map((item) => (
                 <li
                   key={item.name}
@@ -95,7 +111,7 @@ export default function Hero() {
               ))}
             </ul>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="hero-enter mt-10 flex flex-col gap-3 sm:flex-row" style={enter(370)}>
               <Link
                 href="/orcamento"
                 className="budget-btn inline-flex h-13 items-center justify-center bg-neon px-7 text-[15px] font-semibold text-black hover:bg-neon-deep"
@@ -111,7 +127,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="border border-ink-line bg-black/60 backdrop-blur-sm">
+          <div
+            className="hero-enter border border-ink-line bg-black/60 backdrop-blur-sm"
+            style={enter(220)}
+          >
             <div className="flex items-center justify-between border-b border-ink-line px-4 py-3">
               <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-neutral-500">
                 Tabela de referência
@@ -153,7 +172,10 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-wrap gap-x-12 gap-y-6 border-t border-ink-line pt-7 pb-10 md:mt-16 md:pb-12">
+        <div
+          className="hero-enter mt-14 flex flex-wrap gap-x-12 gap-y-6 border-t border-ink-line pt-7 pb-10 md:mt-16 md:pb-12"
+          style={enter(480)}
+        >
           {stats.map((stat) => (
             <div key={stat.label}>
               <p className="tabular font-mono text-[21px] font-semibold leading-none text-white">

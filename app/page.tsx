@@ -8,15 +8,9 @@ import Reveal from "@/components/ui/Reveal";
 export default function Home() {
   return (
     <>
-      <Reveal>
-        <Hero />
-      </Reveal>
-      <Reveal delay={80}>
-        <ServicesSection />
-      </Reveal>
-      <Reveal delay={160}>
-        <ProjectsSection />
-      </Reveal>
+      <Hero />
+      <ServicesSection />
+      <ProjectsSection />
       <Reveal delay={240}>
         <QuoteCall />
       </Reveal>
