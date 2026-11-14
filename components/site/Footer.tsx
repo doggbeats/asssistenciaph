@@ -17,7 +17,7 @@ export default async function Footer() {
     <footer className="border-t border-ink-line bg-ink">
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1.2fr]">
-          <div>
+          <div data-scroll-reveal>
             <Logo variant="plain" />
             <p className="mt-5 font-mono text-[11px] leading-relaxed tracking-[0.16em] text-neutral-500">
               {brand.subtitle}
@@ -27,7 +27,7 @@ export default async function Footer() {
             </p>
           </div>
 
-          <div>
+          <div data-scroll-reveal>
             <h2 className="font-mono text-[11px] tracking-[0.16em] text-neutral-500">
               NAVEGAÇÃO
             </h2>
@@ -45,7 +45,7 @@ export default async function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div data-scroll-reveal>
             <h2 className="font-mono text-[11px] tracking-[0.16em] text-neutral-500">
               CONTATO
             </h2>

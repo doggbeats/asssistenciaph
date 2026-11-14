@@ -36,6 +36,7 @@ function ServiceOption({ item, quantity, onToggle, onChangeQuantity, tag }: Serv
 
   return (
     <div
+      data-scroll-reveal="fade"
       className={cn(
         "border bg-white transition-colors",
         on ? "border-neon" : "border-line",
@@ -132,7 +133,7 @@ interface StepProps {
 function Step({ number, title, hint, id, children }: StepProps) {
   return (
     <section id={id} className="border-t border-line pt-8 first:border-t-0 first:pt-0">
-      <div className="flex items-baseline gap-3.5">
+      <div data-scroll-reveal className="flex items-baseline gap-3.5">
         <span className="font-mono text-[12px] text-neutral-400">{number}</span>
         <div>
           <h2 className="text-[16.5px] font-semibold leading-snug tracking-tight text-ink">

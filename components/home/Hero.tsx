@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HeroBackdrop from "@/components/home/HeroBackdrop";
 import { brand } from "@/data/site";
 import {
   countTotalServices,
@@ -53,7 +54,7 @@ export default function Hero() {
 
   return (
     <section id="inicio" className="relative scroll-mt-20 overflow-hidden bg-ink text-white">
-      <div aria-hidden="true" className="tech-grid pointer-events-none absolute inset-0" />
+      <HeroBackdrop />
 
       <div className="relative mx-auto max-w-6xl px-5 pt-16 md:pt-24 lg:pt-28">
         <div className="grid gap-14 lg:grid-cols-[1fr_384px] lg:items-start lg:gap-12">

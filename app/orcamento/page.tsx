@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import DotGridBackground from "@/components/home/DotGridBackground";
 import QuoteBuilder from "@/components/orcamento/QuoteBuilder";
 import { serviceCategories } from "@/data/services";
 
@@ -17,8 +18,12 @@ export default function OrcamentoPage() {
 
   return (
     <div className="bg-mist">
-      <div className="relative overflow-hidden border-b border-ink-line bg-ink text-white">
+      <div
+        data-dot-grid-scope
+        className="relative overflow-hidden border-b border-ink-line bg-ink text-white"
+      >
         <div aria-hidden="true" className="tech-grid pointer-events-none absolute inset-0" />
+        <DotGridBackground className="pointer-events-none absolute inset-0 opacity-90" />
 
         <div className="relative mx-auto max-w-6xl px-5 py-14 md:py-16">
           <p className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-neutral-500">

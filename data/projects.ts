@@ -33,14 +33,14 @@ export const projects: Project[] = [
 
   {
     id: "Catalogo-tenis",
-    name: " + Tênis",
+    name: "WELL FASHION — Catálogo Digital",
     description:
       "Catálogo digital de tênis com fotos tamanhos ,cores, preços e pedido direto pelo WhatsApp site de identidade profissional tudo em apenas um link.",
     problem:
       "Vender online sem depender de divulgar peça por peça nas redes: reunir catálogo, preços, descontos e contato em um único endereço que funciona no celular.",
     link: "https://catalago-whatsapp.vercel.app/",
-    image: "/catalogo-tenis.jpg",
-    hoverImage: "/catalago1.jpg",
+    image: "/wellfashion.png",
+    hoverImage: "/well2.jpg",
   
   },
  
@@ -64,8 +64,8 @@ export const projects: Project[] = [
     problem:
       "Transformar pedidos de orçamento espalhados em mensagens em um fluxo organizado: o cliente monta a solicitação pelo site, envia pelo WhatsApp e o buffet retorna com a proposta avaliando cada evento de forma individual.",
     link: "https://sresragourmet.vercel.app/",
-    image: "/Gourmet.jpg",
-    hoverImage: "/Gourmet1.jpg",
+    image: "/buffet.png",
+    hoverImage: "/buffet2.jpg",
    
   },
 

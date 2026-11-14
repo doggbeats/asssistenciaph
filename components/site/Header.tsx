@@ -13,6 +13,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/92 backdrop-blur-md">
+      <div aria-hidden="true" className="scroll-progress" />
+
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:h-[72px]">
         <Link
           href="/#inicio"

@@ -41,7 +41,7 @@ export default function PrivacidadePage() {
 
       <div className="mx-auto max-w-3xl px-5 py-12 md:py-16">
         <div className="space-y-10 text-[14.5px] leading-relaxed text-neutral-700">
-          <section>
+          <section data-scroll-reveal>
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
               01 — Quem trata os dados
             </h2>
@@ -53,7 +53,7 @@ export default function PrivacidadePage() {
             </p>
           </section>
 
-          <section>
+          <section data-scroll-reveal>
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
               02 — O que o assistente virtual faz
             </h2>
@@ -71,7 +71,7 @@ export default function PrivacidadePage() {
             </p>
           </section>
 
-          <section>
+          <section data-scroll-reveal>
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
               03 — Limite de uso e segurança
             </h2>
@@ -89,7 +89,7 @@ export default function PrivacidadePage() {
             </p>
           </section>
 
-          <section>
+          <section data-scroll-reveal>
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
               04 — Uso opcional de provedor de IA
             </h2>
@@ -107,7 +107,7 @@ export default function PrivacidadePage() {
             </p>
           </section>
 
-          <section>
+          <section data-scroll-reveal>
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
               05 — Dados que você não deve enviar
             </h2>
@@ -119,7 +119,7 @@ export default function PrivacidadePage() {
             </p>
           </section>
 
-          <section>
+          <section data-scroll-reveal>
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
               06 — Orçamento e WhatsApp
             </h2>
@@ -131,7 +131,7 @@ export default function PrivacidadePage() {
             </p>
           </section>
 
-          <section>
+          <section data-scroll-reveal>
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
               07 — Seus direitos
             </h2>
@@ -148,7 +148,7 @@ export default function PrivacidadePage() {
             </p>
           </section>
 
-          <section className="border-t border-line pt-8">
+          <section data-scroll-reveal className="border-t border-line pt-8">
             <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-neutral-500">
               Canais oficiais
             </h2>

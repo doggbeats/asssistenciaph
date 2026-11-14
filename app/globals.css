@@ -44,6 +44,65 @@ body {
   background-size: 72px 72px;
 }
 
+/* Fundo interativo do hero: as camadas acompanham o ponteiro. */
+.hero-backdrop {
+  --hero-x: 0;
+  --hero-y: 0;
+  background:
+    radial-gradient(110% 80% at 50% 0%, #111111 0%, var(--color-ink) 55%, #060606 100%);
+}
+
+.hero-ambient {
+  position: absolute;
+  inset: -15%;
+  background:
+    radial-gradient(38% 46% at 24% 16%, rgba(57, 255, 20, 0.09), transparent 72%),
+    radial-gradient(44% 52% at 82% 82%, rgba(57, 255, 20, 0.055), transparent 74%);
+  animation: hero-ambient-drift 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes hero-ambient-drift {
+  from {
+    transform: translate3d(-1.2%, -0.8%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(1.2%, 1.2%, 0) scale(1.06);
+  }
+}
+
+.hero-grid-far,
+.hero-grid-near {
+  position: absolute;
+  will-change: transform;
+}
+
+.hero-grid-far {
+  inset: -96px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-position: center top;
+  transform: translate3d(calc(var(--hero-x) * -18px), calc(var(--hero-y) * -18px), 0);
+  -webkit-mask-image: radial-gradient(125% 105% at 50% 0%, #000 35%, transparent 88%);
+  mask-image: radial-gradient(125% 105% at 50% 0%, #000 35%, transparent 88%);
+}
+
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(130% 100% at 50% 0%, transparent 45%, rgba(0, 0, 0, 0.55) 100%);
+}
+
 @keyframes hero-enter {
   from {
     opacity: 0;
@@ -160,6 +219,91 @@ body {
   transform: translateY(0);
 }
 
+/* Scroll-driven animations */
+.scroll-progress {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-neon), #b6ff9e);
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.45);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+@keyframes scroll-progress-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scroll-progress-fill linear both;
+    animation-duration: auto;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@keyframes scroll-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--scroll-reveal-x, 0px), var(--scroll-reveal-y, 26px), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+[data-scroll-reveal="left"] {
+  --scroll-reveal-x: -32px;
+  --scroll-reveal-y: 0px;
+}
+
+[data-scroll-reveal="right"] {
+  --scroll-reveal-x: 32px;
+  --scroll-reveal-y: 0px;
+}
+
+[data-scroll-reveal="down"] {
+  --scroll-reveal-y: -22px;
+}
+
+[data-scroll-reveal="fade"] {
+  --scroll-reveal-y: 0px;
+}
+
+@supports (animation-timeline: view()) {
+  [data-scroll-reveal] {
+    animation: scroll-reveal linear both;
+    animation-duration: auto;
+    animation-timeline: view(block);
+    animation-range: entry 0% cover 26%;
+  }
+}
+
+@keyframes hero-scroll-drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .hero-backdrop {
+    animation: hero-scroll-drift linear both;
+    animation-duration: auto;
+    animation-timeline: scroll(root block);
+    animation-range: 0 100vh;
+  }
+}
+
 ::selection {
   background-color: var(--color-neon);
   color: #000000;
@@ -182,5 +326,15 @@ body {
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
+  }
+
+  [data-scroll-reveal],
+  .scroll-progress,
+  .hero-backdrop {
+    animation: none !important;
+  }
+
+  .scroll-progress {
+    transform: scaleX(1);
   }
 }

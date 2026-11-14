@@ -1,9 +1,11 @@
 import Link from "next/link";
+import DotGridBackground from "@/components/home/DotGridBackground";
 
 export default function QuoteCall() {
   return (
     <section className="relative overflow-hidden bg-ink">
       <div aria-hidden="true" className="tech-grid pointer-events-none absolute inset-0" />
+      <DotGridBackground className="pointer-events-none absolute inset-0 opacity-90" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-5 py-16 md:flex-row md:items-end md:justify-between md:py-20">
         <div>
