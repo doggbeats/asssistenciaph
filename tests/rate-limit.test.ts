@@ -18,6 +18,8 @@ function restoreEnv() {
   Object.assign(process.env, originalEnv);
 }
 
+const CSRF_TOKEN = "a".repeat(43);
+
 function jsonRequest(
   body: unknown,
   headers: Record<string, string> = {},
@@ -28,6 +30,8 @@ function jsonRequest(
     headers: {
       "content-type": "application/json",
       "x-forwarded-for": "203.0.113.10",
+      cookie: `code_ph_csrf=${CSRF_TOKEN}`,
+      "x-csrf-token": CSRF_TOKEN,
       ...headers,
     },
     body: rawBody ?? JSON.stringify(body),

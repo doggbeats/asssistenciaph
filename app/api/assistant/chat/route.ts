@@ -5,6 +5,13 @@ import {
   hashClientKey,
 } from "@/lib/assistant/rate-limit";
 import { assistantRequestSchema, MAX_REQUEST_BYTES } from "@/lib/assistant/schema";
+import {
+  CSRF_HEADER_NAME,
+  isCsrfToken,
+  readCsrfCookie,
+  tokensMatch,
+} from "@/lib/security/csrf";
+import { isSameOrigin } from "@/lib/security/origin";
 
 const NO_STORE_HEADERS = {
   "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
@@ -18,18 +25,13 @@ function json(body: unknown, status = 200, extraHeaders: Record<string, string> 
   });
 }
 
-function isSameOrigin(request: Request): boolean {
-  const origin = request.headers.get("origin");
-  if (!origin) return true;
+function hasValidCsrfToken(request: Request): boolean {
+  const cookieToken = readCsrfCookie(request);
+  const headerToken = request.headers.get(CSRF_HEADER_NAME) ?? undefined;
 
-  const host = request.headers.get("host");
-  if (!host) return false;
+  if (!isCsrfToken(cookieToken) || !isCsrfToken(headerToken)) return false;
 
-  try {
-    return new URL(origin).host === host;
-  } catch {
-    return false;
-  }
+  return tokensMatch(cookieToken, headerToken);
 }
 
 export async function POST(request: Request) {
@@ -39,6 +41,19 @@ export async function POST(request: Request) {
         error: {
           code: "forbidden",
           message: "Origem da requisição não permitida.",
+        },
+      },
+      403,
+    );
+  }
+
+  if (!hasValidCsrfToken(request)) {
+    return json(
+      {
+        error: {
+          code: "invalid_csrf",
+          message:
+            "Sessão de segurança expirada. Recarregue a página e tente novamente.",
         },
       },
       403,

@@ -14,6 +14,7 @@ import type {
   AssistantResponse,
   AssistantSummary,
 } from "@/lib/assistant/types";
+import { csrfHeaders, resetCsrfToken } from "@/lib/security/csrf-client";
 
 interface UiMessage {
   id: string;
@@ -33,16 +34,61 @@ interface FailedRequest {
 
 class AssistantRequestError extends Error {
   retryAfterSeconds?: number;
+  code?: string;
 
-  constructor(message: string, retryAfterSeconds?: number) {
+  constructor(message: string, retryAfterSeconds?: number, code?: string) {
     super(message);
     this.name = "AssistantRequestError";
     this.retryAfterSeconds = retryAfterSeconds;
+    this.code = code;
   }
 }
 
 const MAX_MESSAGE_LENGTH = 800;
 const REQUEST_TIMEOUT_MS = 25_000;
+
+/**
+ * Envia a mensagem com o token CSRF. Se o servidor recusar o token (cookie
+ * expirado ou renovado), pede um novo e repete a requisição uma única vez.
+ */
+async function requestChat(
+  text: string,
+  history: AssistantHistoryMessage[],
+  signal: AbortSignal,
+): Promise<unknown> {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const headers = await csrfHeaders({
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    });
+
+    const response = await fetch("/api/assistant/chat", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ message: text, history }),
+      signal,
+      cache: "no-store",
+      credentials: "same-origin",
+    });
+
+    const payload: unknown = await response.json().catch(() => null);
+
+    if (response.ok) return payload;
+
+    const error = parseApiError(payload, response.status);
+
+    if (response.status === 403 && error.code === "invalid_csrf" && attempt === 0) {
+      resetCsrfToken();
+      continue;
+    }
+
+    throw error;
+  }
+
+  throw new AssistantRequestError(
+    "Não consegui validar a sessão de segurança. Recarregue a página e tente novamente.",
+  );
+}
 
 function createGreeting(): UiMessage {
   return {
@@ -92,8 +138,9 @@ function parseApiError(payload: unknown, status: number): AssistantRequestError 
           : null;
       const retryAfter =
         typeof data.retryAfterSeconds === "number" ? data.retryAfterSeconds : undefined;
+      const code = typeof data.code === "string" ? data.code : undefined;
 
-      if (message) return new AssistantRequestError(message, retryAfter);
+      if (message) return new AssistantRequestError(message, retryAfter, code);
     }
   }
 
@@ -216,22 +263,7 @@ export default function AssistantWidget() {
       const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
       try {
-        const response = await fetch("/api/assistant/chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({ message: text, history }),
-          signal: controller.signal,
-          cache: "no-store",
-        });
-
-        const payload: unknown = await response.json().catch(() => null);
-
-        if (!response.ok) {
-          throw parseApiError(payload, response.status);
-        }
+        const payload = await requestChat(text, history, controller.signal);
 
         if (!isAssistantResponse(payload)) {
           throw new AssistantRequestError(

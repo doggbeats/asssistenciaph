@@ -83,6 +83,15 @@ export default function PrivacidadePage() {
               aplicação e os contadores são descartados quando a janela de tempo termina.
             </p>
             <p className="mt-3">
+              O site também usa um cookie essencial de segurança. Ele guarda um código
+              aleatório que comprova que a mensagem foi enviada pela própria página, e não
+              por outro site em seu nome. Esse cookie é inacessível a scripts da página
+              (HttpOnly), só é enviado para o próprio domínio (SameSite) e expira em até
+              duas horas. Ele não identifica o visitante, não é usado para publicidade ou
+              análise de navegação e não exige consentimento, por ser necessário para o
+              funcionamento seguro do assistente.
+            </p>
+            <p className="mt-3">
               A infraestrutura de hospedagem pode registrar dados técnicos de acesso, como
               endereço IP, data e hora, em logs operacionais, conforme a configuração do
               provedor. Esses registros não incluem o conteúdo das mensagens do assistente.
